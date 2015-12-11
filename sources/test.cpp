@@ -1,8 +1,8 @@
 #include <cassert>
 
-int main()
+auto main() -> int
 {
-    const int n = 10;
+    constexpr auto n = 10;
     assert(n + n == 20);
 
     return 0;
