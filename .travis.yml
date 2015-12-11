@@ -1,0 +1,4 @@
+language: cpp
+script:
+    - g++ --version
+    - g++ -std=c++11 -Wall -pedantic sources/test.cpp && ./a.out
