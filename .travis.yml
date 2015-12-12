@@ -1,10 +1,10 @@
 language: cpp
 compiler:
-    - g++-4,9
-script:
-    - g++-4.9 --version
-    - g++-4.9 -std=c++11 -Wall -Wextra -pedantic sources/test.cpp && ./a.out
-install:
-    - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-    - sudo apt-get -qq update
-    - sudo apt-get -qq install g++-4.9
+    - clang++
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install libgtest-dev
+    - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/ ; cd -"
+before_script:
+    - pwd
+script: "sh ./.travis_build.sh"
